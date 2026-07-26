@@ -1,0 +1,6 @@
+job_env/
+.env
+__pycache__/
+*.pyc
+resume_vector_db/
+.vscode/
