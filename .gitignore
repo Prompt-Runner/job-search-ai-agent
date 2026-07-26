@@ -1,6 +1,15 @@
+# Virtual Environment
 job_env/
+
+# Environment Variables
 .env
+
+# Python Cache
 __pycache__/
 *.pyc
+
+# Vector Database
 resume_vector_db/
+
+# VS Code Settings
 .vscode/

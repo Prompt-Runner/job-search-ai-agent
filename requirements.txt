@@ -2,10 +2,10 @@ fastapi
 uvicorn
 python-dotenv
 google-genai
+pydantic
 langchain
 langchain-community
 langchain-google-genai
 faiss-cpu
 pypdf
-sentence-transformers
 python-multipart
