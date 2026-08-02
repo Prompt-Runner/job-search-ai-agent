@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
 
+from App.services.upload_service import save_resume
 from App.workflows.workflow import process_message
 
 app = FastAPI(
@@ -25,6 +26,11 @@ def health():
     return {
         "status": "Healthy"
     }
+
+
+@app.post("/upload-resume")
+def upload_resume(file: UploadFile = File(...)):
+    return save_resume(file)
 
 
 @app.post("/chat")
