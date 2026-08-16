@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from App.services.upload_service import save_resume
+from App.services.resume_analysis_service import analyze_resume
+
 from App.workflows.workflow import process_message
 
 
@@ -13,7 +15,7 @@ app = FastAPI(
 
 
 # =====================================================
-# CORS CONFIGURATION
+# CORS
 # =====================================================
 
 app.add_middleware(
@@ -28,7 +30,7 @@ app.add_middleware(
 
 
 # =====================================================
-# REQUEST MODELS
+# REQUEST MODEL
 # =====================================================
 
 class ChatRequest(BaseModel):
@@ -47,7 +49,7 @@ def home():
 
 
 # =====================================================
-# HEALTH CHECK
+# HEALTH
 # =====================================================
 
 @app.get("/health")
@@ -79,3 +81,33 @@ def upload_resume(
 ):
 
     return save_resume(file)
+
+
+# =====================================================
+# RESUME ANALYSIS
+# =====================================================
+
+@app.post("/analyze-resume")
+async def analyze_resume_api(
+    file: UploadFile = File(...)
+):
+
+    try:
+
+        # Read uploaded file
+        file_content = await file.read()
+
+        # Analyze resume
+        result = analyze_resume(
+            file_content,
+            file.filename
+        )
+
+        return result
+
+    except Exception as e:
+
+        return {
+            "success": False,
+            "error": str(e)
+        }
