@@ -21,6 +21,7 @@ Double-click the [run_app.bat](run_app.bat) file in the root directory. It will 
   - `workflows/` - App workflows
   - `main.py` - FastAPI app initialization and routing
 - `Assets/` - Local storage (uploaded resumes, FAISS index files)
+- `tests/` - Unit and integration tests
 - `job_env/` - Isolated python virtual environment
 - `run_app.bat` - Unified double-click startup script
 
@@ -39,3 +40,15 @@ Double-click the [run_app.bat](run_app.bat) file in the root directory. It will 
 
 The React frontend is set up for Firebase Hosting under project **`job-search-312e3`**:
 - **Live URL**: `https://job-search-312e3.web.app`
+
+---
+
+## 🧪 Running Tests
+
+You can run individual test modules from the project root using:
+```powershell
+job_env\Scripts\python.exe -m tests.test_parser
+job_env\Scripts\python.exe -m tests.test_chunking
+job_env\Scripts\python.exe -m tests.test_faiss
+job_env\Scripts\python.exe -m tests.test_retrieval
+```
