@@ -3,7 +3,7 @@ import json
 from App.services.gemini_service import generate_response
 
 
-def match_resume_with_job(resume_text: str, job_description: str):
+def match_job(resume_text: str, job_description: str):
 
     prompt = f"""
 You are an expert ATS and job matching system.

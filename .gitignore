@@ -1,5 +1,7 @@
 # Virtual Environment
 job_env/
+venv/
+.venv/
 
 # Environment Variables
 .env
@@ -8,8 +10,15 @@ job_env/
 __pycache__/
 *.pyc
 
-# Vector Database
+# Vector Database and Uploaded Resumes
+Assets/vector_db/
+Assets/resumes/
 resume_vector_db/
 
-# VS Code Settings
+# Editor Settings
 .vscode/
+.idea/
+
+# OS Files
+Thumbs.db
+desktop.ini
