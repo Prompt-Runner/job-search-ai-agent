@@ -40,4 +40,10 @@ def extract_docx(file_path):
     for paragraph in document.paragraphs:
         text += paragraph.text + "\n"
 
+    for table in document.tables:
+        for row in table.rows:
+            for cell in row.cells:
+                text += cell.text + " "
+            text += "\n"
+
     return text
