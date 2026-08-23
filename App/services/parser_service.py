@@ -13,6 +13,9 @@ def extract_text(file_path: str):
     elif extension == ".docx":
         return extract_docx(file_path)
 
+    elif extension == ".txt":
+        return extract_txt(file_path)
+
     else:
         raise Exception("Unsupported file type")
 
@@ -47,3 +50,8 @@ def extract_docx(file_path):
             text += "\n"
 
     return text
+
+
+def extract_txt(file_path):
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        return f.read()

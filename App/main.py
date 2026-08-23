@@ -100,12 +100,13 @@ async def analyze_resume_api(
 
         if extension not in [
             ".pdf",
-            ".docx"
+            ".docx",
+            ".txt"
         ]:
 
             return {
                 "success": False,
-                "error": "Only PDF and DOCX files are supported."
+                "error": "Only PDF, DOCX, and TXT files are supported."
             }
 
         with tempfile.NamedTemporaryFile(
@@ -176,12 +177,13 @@ async def match_job_api(
 
         if extension not in [
             ".pdf",
-            ".docx"
+            ".docx",
+            ".txt"
         ]:
 
             return {
                 "success": False,
-                "error": "Only PDF and DOCX files are supported."
+                "error": "Only PDF, DOCX, and TXT files are supported."
             }
 
         with tempfile.NamedTemporaryFile(
@@ -264,12 +266,13 @@ async def chat(
 
             if extension not in [
                 ".pdf",
-                ".docx"
+                ".docx",
+                ".txt"
             ]:
 
                 return {
                     "success": False,
-                    "error": "Only PDF and DOCX files are supported."
+                    "error": "Only PDF, DOCX, and TXT files are supported."
                 }
 
             with tempfile.NamedTemporaryFile(
