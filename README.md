@@ -14,14 +14,17 @@ Double-click the [run_app.bat](run_app.bat) file in the root directory. It will 
 
 ## 📂 Project Structure
 
-- `App/` - Core backend logic
-  - `agents/` - LLM agents (RAG, career guidance)
-  - `database/` - FAISS vector database logic
-  - `services/` - Services (parsing, embeddings, job matching, resume analysis)
-  - `workflows/` - App workflows
-  - `main.py` - FastAPI app initialization and routing
-- `Assets/` - Local storage (uploaded resumes, FAISS index files)
-- `tests/` - Unit and integration tests
+- `backend/` - Core backend
+  - `src/` - Backend source code
+    - `agents/` - LLM agents (RAG, career guidance)
+    - `database/` - FAISS vector database logic
+    - `services/` - Services (parsing, embeddings, job matching, resume analysis)
+    - `workflows/` - App workflows
+    - `main.py` - FastAPI app initialization and routing
+  - `tests/` - Unit and integration tests
+- `shared/` - Shared resources
+  - `Assets/` - Local storage (uploaded resumes, FAISS index files)
+  - `data/` - Additional data files
 - `job_env/` - Isolated python virtual environment
 - `run_app.bat` - Unified double-click startup script
 
@@ -47,8 +50,8 @@ The React frontend is set up for Firebase Hosting under project **`job-search-31
 
 You can run individual test modules from the project root using:
 ```powershell
-job_env\Scripts\python.exe -m tests.test_parser
-job_env\Scripts\python.exe -m tests.test_chunking
-job_env\Scripts\python.exe -m tests.test_faiss
-job_env\Scripts\python.exe -m tests.test_retrieval
+job_env\Scripts\python.exe -m pytest backend/tests/test_parser
+job_env\Scripts\python.exe -m pytest backend/tests/test_chunking
+job_env\Scripts\python.exe -m pytest backend/tests/test_faiss
+job_env\Scripts\python.exe -m pytest backend/tests/test_retrieval
 ```

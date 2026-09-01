@@ -5,7 +5,7 @@ echo ========================================================
 
 :: Start the FastAPI Backend
 echo [1/2] Starting FastAPI Backend on port 8000...
-start "Job Search Backend" cmd /k "job_env\Scripts\python.exe -m uvicorn App.main:app --port 8000"
+start "Job Search Backend" cmd /k "job_env\Scripts\python.exe -m uvicorn backend.src.main:app --port 8000"
 
 :: Start the Vite React Frontend
 echo [2/2] Starting React Frontend on port 5173...

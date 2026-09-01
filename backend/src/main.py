@@ -11,11 +11,11 @@ import os
 import shutil
 import tempfile
 
-from App.services.upload_service import save_resume
-from App.services.parser_service import extract_text
-from App.services.resume_analysis_service import analyze_resume
-from App.services.job_matching_service import match_job
-from App.services.gemini_service import generate_response
+from backend.src.services.upload_service import save_resume
+from backend.src.services.parser_service import extract_text
+from backend.src.services.resume_analysis_service import analyze_resume
+from backend.src.services.job_matching_service import match_job
+from backend.src.services.gemini_service import generate_response
 
 
 app = FastAPI(
