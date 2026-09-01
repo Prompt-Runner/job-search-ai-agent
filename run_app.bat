@@ -9,7 +9,7 @@ start "Job Search Backend" cmd /k "job_env\Scripts\python.exe -m uvicorn backend
 
 :: Start the Vite React Frontend
 echo [2/2] Starting React Frontend on port 5173...
-start "Job Search Frontend" cmd /k "cd /d C:\Users\vighn\OneDrive\Desktop\job-search-frontend && npm run dev"
+start "Job Search Frontend" cmd /k "cd /d %~dp0frontend && npm run dev"
 
 echo --------------------------------------------------------
 echo Both services are starting in separate windows.
